@@ -1,0 +1,73 @@
+body {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    font-size: larger;
+    background-color: #f3f3f3;
+}
+
+
+
+
+label {
+    float: right;
+}
+
+
+.addBtn {
+    float: right;
+    font-weight: 800;
+}
+.myForm
+{
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+// .lightBox-container
+// {
+//     background-color: rgba(0, 0, 0, 0.6);
+//     position: fixed ; 
+//     top: 0;
+//     bottom: 0;
+//     right: 0;
+//     left: 0;
+//     display: none;
+//     justify-content: center;
+//     align-items: center;
+// }
+// .lightBox-item
+// {
+//     width: 500px;
+//     background-color: #363434;
+  
+// }
+/* .helper
+{
+    display: flex;
+    justify-content: center;
+} */
+
+
+.w-10{
+    width: 10%;
+}
+
+.w-15
+{
+width:14%;
+}
+// #list
+// {
+//     background-color:rgba(0, 0, 0, 0.6);
+// }
+
+// table td:hover
+// {
+//     cursor: pointer;
+// }
+
+p
+{
+    text-align: right;
+}

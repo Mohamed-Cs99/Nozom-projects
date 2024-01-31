@@ -1,0 +1,26 @@
+<section id="lgForm" class="vh-100 pt-5 ">
+    <div class="log w-30 m-auto py-5 mt-5 bg-transparent">
+        <form class=" py-5 my-5" [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
+            <div class="form-group">
+                <label for="userName">userName</label>
+                <input type="text" formControlName="userName" id="userName" class="form-control">
+                <div *ngIf="loginForm.get('userName')?.errors!=null &&loginForm.get('userName')?.touched" class="alert alert-danger py-0 mt-1">
+                    <p  *ngIf="loginForm.get('userName')?.hasError('required')">email is required</p>
+                    <!-- <p  *ngIf="loginForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="passWord">Password</label>
+                <input type="passWord" formControlName="passWord" id="passWord" class="form-control">
+                <div *ngIf="loginForm.get('passWord')?.errors!=null &&loginForm.get('passWord')?.touched" class="alert alert-danger py-0 mt-1">
+                    <p  *ngIf="loginForm.get('passWord')?.hasError('required')">PassWord is required</p>
+                    <!-- <p  *ngIf="loginForm.get('password')?.hasError('pattern')">First Letter Capital and 3-8 any char or numbers </p> -->
+                </div>
+            </div>
+    
+           <button [disabled]="loginForm.invalid" class="btn btn-outline-info font-weight-bolder p-3" type="submit">Login</button>
+    
+        </form>
+    </div>
+</section>

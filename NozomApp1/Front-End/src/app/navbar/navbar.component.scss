@@ -1,0 +1,17 @@
+nav li a {
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+    transition: color .5s;
+}
+
+nav li a:hover {
+    color: green ;
+}
+
+.header 
+{
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+}

@@ -1,0 +1,32 @@
+form
+{
+    margin-top: 80px;
+    border: solid 2px #f3f3f3;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba($color: #2b2727, $alpha: 0.9);
+}
+label
+{
+    font-weight: bolder;
+    font-size: 20px;
+    color: white;
+}
+
+.w-30
+{
+    width: 30%;
+}
+#lgForm
+{
+    background-image: url(../../assets/tst.webp);
+    background-size: cover;
+    background-position: center center;
+}
+
+button :hover
+{
+    cursor: pointer;
+    
+}

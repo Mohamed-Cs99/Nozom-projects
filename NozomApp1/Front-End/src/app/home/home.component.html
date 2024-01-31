@@ -1,0 +1,199 @@
+<section>
+
+    
+    <div class="container py-5" dir="rtl">
+        <!-- <h1 class="bg-dark py-2 text-center text-white">استعلامات الضباط "المجلس الطبى العسكرى العام"</h1> -->
+        <div class="myForm bg-light w-100 mr-auto pb-5 my-3">
+            <h1 class="text-center">بيانات الظباط </h1>
+            <form [formGroup]="officerDataForm" (ngSubmit)="submitOfficerForm(officerDataForm)" class="pb-4">
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input formControlName="name" type="text" id="name" class="form-control" required>
+                            <div dir="rtl"
+                                *ngIf="officerDataForm.get('name')?.errors!=null &&officerDataForm.get('name')?.touched"
+                                class="alert alert-danger py-0 mt-1">
+                                <p *ngIf="officerDataForm.get('name')?.hasError('required')">يرجى ادخال الاسم</p>
+                                <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="id">الرقم العسكرى</label>
+                            <input formControlName="id" type="number" id="id" class="form-control" required>
+                            <div *ngIf="officerDataForm.get('id')?.errors!=null &&officerDataForm.get('id')?.touched"
+                                class="alert alert-danger py-0 mt-1">
+                                <p *ngIf="officerDataForm.get('id')?.hasError('required')">يرجى ادخال الرقم العسكرى</p>
+                                <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row py-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="degree">الرتبه</label>
+                            <select formControlName="degree" id="degree" class="form-control py-1">
+                                <option value="" selected>اختر الرتبه</option>
+                                <option value="ملازم">ملازم</option>
+                                <option value="ملازم اول">ملازم اول</option>
+                                <option value="نقيب">نقيب</option>
+                                <option value="رائد">رائد</option>
+                                <option value="مقدم">مقدم</option>
+                                <option value="عقيد">عقيد</option>
+                                <option value="عميد">عميد</option>
+                                <option value="لواء">لواء</option>
+                            </select>
+                            <div *ngIf="officerDataForm.get('degree')?.errors!=null &&officerDataForm.get('degree')?.touched"
+                                class="alert alert-danger py-0 mt-1">
+                                <p *ngIf="officerDataForm.get('degree')?.hasError('required')">يرجى ادخال الرتبه</p>
+                                <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group py-2">
+                            <label for="type">نوع التصديق </label>
+                            <select formControlName="type" id="type" class="form-control py-1">
+                                <option value="" selected>اختر نوع التصديق </option>
+                                <option value="خ طب">خ طب</option>
+                                <option value="تعيمات رئيس اركان">تعيمات رئيس اركان </option>
+                                <option value="اوامر مدير سلاح">اوامر مدير سلاح</option>
+                                <option value="اوامر مدير شئون ظباط">اوامر مدير شئون ظباط</option>
+                                <option value="اوامر مدير هيئة شئون ماليه">اوامر مدير هيئة شئون ماليه</option>
+                                <option value="غير لائق تربيه">غير لائق تربيه</option>
+                                <option value="غير لائق بعثه">غير لائق بعثه</option>
+                                <option value="غير لائق دورى">غير لائق دورى</option>
+                                <option value="تصديق جراحه">تصديق جراحه</option>
+                            </select>
+                            <div *ngIf="officerDataForm.get('type')?.errors!=null &&officerDataForm.get('type')?.touched"
+                                class="alert alert-danger py-0 mt-1">
+                                <p *ngIf="officerDataForm.get('type')?.hasError('required')">يرجى ادخال نوع التصديق</p>
+                                <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div id="target" class="hidden ">
+                    <div class="form-group">
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lagnaType"> نوع اللجنه </label>
+                                    <select formControlName="lagna" id="lagnaType" class="form-control py-1">
+                                        <option value="" selected>اختر نوع اللجنه </option>
+                                        <option value="عمود فقرى ومخ واعصاب">عمود فقرى ومخ واعصاب</option>
+                                        <option value="مسالك"> مسالك </option>
+                                        <option value="جراحه"> جراحه </option>
+                                        <option value="رمد">رمد</option>
+                                        <option value="قلب">قلب</option>
+                                        <option value="انف واذن"> انف واذن </option>
+                                        <option value="عظام"> عظام </option>
+                                        <option value="روماتويد">روماتويد</option>
+
+                                    </select>
+                                    <div *ngIf="officerDataForm.get('lagna')?.errors!=null &&officerDataForm.get('lagna')?.touched"
+                                        class="alert alert-danger py-0 mt-1">
+                                        <p *ngIf="officerDataForm.get('lagna')?.hasError('required')">يرجى ادخال نوع
+                                            اللجنه</p>
+                                        <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                                    </div>
+                                    <!-- <input type="text" id="lagnaType" class="form-control" required> -->
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="hospitalName"> اسم المستشفى </label>
+                                    <select formControlName="hospitalName" id="hospitalName" class="form-control py-1">
+                                        <option value="" selected>اختر اسم المستشفى</option>
+                                        <option value="المستشفى العسكرى العام للعائلات بغمره">المستشفى العسكرى العام
+                                            للعائلات بغمره</option>
+                                        <option value="مجمع الجلاء الطبى للقوات المسلحه"> مجمع الجلاء الطبى للقوات
+                                            المسلحه
+                                        </option>
+                                        <option value="المستشفى العسكرى بدمياط الجديده"> المستشفى العسكرى بدمياط الجديده
+                                        </option>
+                                        <option value="مستشفى المنصوره العسكرى">مستشفى المنصوره العسكرى</option>
+                                        <option value="مستشفى كفرالشيخ العسكرى">مستشفى كفرالشيخ العسكرى</option>
+                                        <option value="مستشفى طنطا العسكرى"> مستشفى طنطا العسكرى </option>
+                                        <option value="المستشفى العسكرى للقوات المسلحه بالاسماعيليه"> المستشفى العسكرى
+                                            للقوات المسلحه بالاسماعيليه </option>
+                                        <option value="مركز السمعيات بالمجمع الطبى بكوبرى القبه للقوات المسلحه">مركز
+                                            السمعيات بالمجمع الطبى بكوبرى القبه للقوات المسلحه</option>
+                                        <option value="مستشفى الرمد بالمجمع الطبى بكوبرى القبه القوات المسلحه">مستشفى
+                                            الرمد
+                                            بالمجمع الطبى بكوبرى القبه القوات المسلحه</option>
+                                        <option value="مستشفى النفسي بالمجمع الطبى بالمعادى القوات المسلحه">مستشفى
+                                            النفسي
+                                            بالمجمع الطبى بالمعادى القوات المسلحه</option>
+                                        <option value="المجمع الطبى للقوات المسلحه بالاسكندريه">المجمع الطبى للقوات
+                                            المسلحه
+                                            بالاسكندريه</option>
+                                        <option value="المستشفى العسكرى بالشرقيه">المستشفى العسكرى بالشرقيه</option>
+                                        <option
+                                            value="مركز الطب الطبيعى والتأهيلى وعلاج الروماتيزم للقوات المسلحه بالعجوزه">
+                                            مركز الطب الطبيعى والتأهيلى وعلاج الروماتيزم للقوات المسلحه بالعجوزه
+                                        </option>
+                                        <option value="مستشفى 6 اكتوبر العسكرى">مستشفى 6 اكتوبر العسكرى</option>
+                                    </select>
+                                    <div *ngIf="officerDataForm.get('hospitalName')?.errors!=null &&officerDataForm.get('hospitalName')?.touched"
+                                        class="alert alert-danger py-0 mt-1">
+                                        <p *ngIf="officerDataForm.get('hospitalName')?.hasError('required')">يرجى ادخال
+                                            اسم المستشفى</p>
+                                        <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                                    </div>
+                                    <!-- <input type="text" id="hospitalName" class="form-control" required> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="diagnosis"> التشخيص </label>
+                        <textarea formControlName="diagnosis" class="form-control" id="diagnosis" cols="30"
+                            rows="3"></textarea>
+                        <div *ngIf="officerDataForm.get('diagnosis')?.errors!=null &&officerDataForm.get('diagnosis')?.touched"
+                            class="alert alert-danger py-0 mt-1">
+                            <p *ngIf="officerDataForm.get('diagnosis')?.hasError('required')">يرجى ادخال التشخيص</p>
+                            <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="dt">تاريخ التصديق </label>
+                    <input formControlName="date" type="date" id="dt" class="form-control" required>
+                    <div *ngIf="officerDataForm.get('date')?.errors!=null &&officerDataForm.get('date')?.touched"
+                        class="alert alert-danger py-0 mt-1">
+                        <p *ngIf="officerDataForm.get('date')?.hasError('required')">يرجى ادخال تاريخ التصديق</p>
+                        <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">ملاحظات</label>
+                    <textarea formControlName="notes" class="form-control" id="notes" cols="30" rows="3"></textarea>
+                    <div *ngIf="officerDataForm.get('notes')?.errors!=null &&officerDataForm.get('notes')?.touched"
+                        class="alert alert-danger py-0 mt-1">
+                        <p *ngIf="officerDataForm.get('notes')?.hasError('required')">يرجى ادخال الملاحظات</p>
+                        <!-- <p  *ngIf="officerDataForm.get('email')?.hasError('email')">email isn't correct </p> -->
+                    </div>
+                </div>
+                <button [disabled]="officerDataForm.invalid" class="btn btn-outline-info addBtn my-2"
+                    id="addButton">اضافه</button>
+            </form>
+        </div>
+
+    </div>
+
+
+</section>
